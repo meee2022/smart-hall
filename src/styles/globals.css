@@ -1,0 +1,149 @@
+/* ============================================================
+   SMART ARENA CONTROL — Global CSS Design System
+   ============================================================ */
+
+/* ── Custom Properties (Dark Theme) ── */
+:root {
+  /* Backgrounds */
+  --bg-primary:    #080d14;
+  --bg-secondary:  #0d1520;
+  --bg-card:       #111a2b;
+  --bg-hover:      #162236;
+
+  /* Accent */
+  --accent-cyan:   #00e5ff;
+  --accent-green:  #00ff88;
+
+  /* Status */
+  --status-red:    #ff3b5c;
+  --status-yellow: #ffcc00;
+  --status-orange: #ff6b35;
+  --status-purple: #a855f7;
+
+  /* Text */
+  --text-primary:   #e8f0ff;
+  --text-secondary: #8899aa;
+  --text-muted:     #556677;
+
+  /* Borders */
+  --border-subtle: rgba(0, 229, 255, 0.08);
+  --border-normal: rgba(0, 229, 255, 0.15);
+
+  /* Glow */
+  --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.3);
+
+  /* Typography */
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  --font-arabic:  'Noto Kufi Arabic', sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --t-fast:   150ms;
+  --t-normal: 300ms;
+  --t-slow:   600ms;
+}
+
+/* ── Light Theme Overrides ── */
+html.light {
+  --bg-primary:    #f0f2f5;
+  --bg-secondary:  #ffffff;
+  --bg-card:       #ffffff;
+  --bg-hover:      #f5f7fa;
+  --text-primary:  #1a2030;
+  --text-secondary:#5a6577;
+  --text-muted:    #8a95a5;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-normal: rgba(0, 0, 0, 0.12);
+}
+
+/* ── CSS Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin:  0;
+  padding: 0;
+}
+
+/* ── Base Body ── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── RTL Body ── */
+[dir="rtl"] body {
+  font-family: var(--font-arabic), var(--font-body);
+}
+
+/* ── RTL Text Overrides ── */
+[dir="rtl"] .section-title,
+[dir="rtl"] .card-title,
+[dir="rtl"] .badge,
+[dir="rtl"] .btn {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.7);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-secondary);
+}
+
+/* ── App Layout ── */
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* ── Main Content ── */
+.main-content {
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+}
