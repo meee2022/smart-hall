@@ -52,10 +52,10 @@ export default function ScreenPreviewOverlay() {
           <div style={{
             width: '600px',
             height: '340px',
-            background: '#1a0408',
-            border: '4px solid #3d0e1a',
+            background: '#ffffff',
+            border: '4px solid #f0f2f5',
             borderRadius: '12px',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(141, 27, 61, 0.2)',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.1), 0 0 20px rgba(141, 27, 61, 0.05)',
             overflow: 'hidden',
             position: 'relative',
             display: 'flex',
@@ -114,7 +114,7 @@ export default function ScreenPreviewOverlay() {
                   fontFamily: 'var(--font-display)',
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
-                  textShadow: `0 0 15px ${previewData.color}50`
+                  textShadow: `0 2px 8px rgba(141,27,61,0.1)`
                 }}>
                   {t(preview.content)}
                 </div>
@@ -124,14 +124,14 @@ export default function ScreenPreviewOverlay() {
             {/* Bottom Bezel Info */}
             <div style={{
               height: '40px',
-              background: '#050a12',
-              borderTop: '1px solid #1a2235',
+              background: '#f8f9fa',
+              borderTop: '1px solid #f0f2f5',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               padding: '0 20px'
             }}>
-              <span style={{ color: '#C5A059', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+              <span style={{ color: '#8D1B3D', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                 {t(screenName).toUpperCase()}
               </span>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}>

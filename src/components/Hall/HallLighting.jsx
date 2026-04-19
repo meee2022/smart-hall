@@ -8,10 +8,10 @@ export default function HallLighting() {
 
   return (
     <group>
-      <ambientLight intensity={0.15 + normalizedIntensity * 0.2} color="#e8f0ff" />
+      <ambientLight intensity={0.3 + normalizedIntensity * 0.3} color="#ffffff" />
       <directionalLight
         position={[5, 10, 5]}
-        intensity={0.4 + normalizedIntensity * 0.3}
+        intensity={0.6 + normalizedIntensity * 0.4}
         color="#ffffff"
         castShadow
         shadow-mapSize-width={1024}

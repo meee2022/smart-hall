@@ -53,7 +53,7 @@ function QAButton({ label, onClick, variant = 'default' }) {
 }
 
 const QA_VARIANTS = {
-  default:   { background: 'rgba(0,229,255,0.1)',   color: '#00e5ff',  border: '1px solid rgba(0,229,255,0.2)'   },
+  default:   { background: 'rgba(141,27,61,0.08)',   color: '#8D1B3D',  border: '1px solid rgba(141,27,61,0.15)'   },
   success:   { background: 'rgba(0,255,136,0.1)',   color: '#00ff88',  border: '1px solid rgba(0,255,136,0.2)'   },
   danger:    { background: 'rgba(255,59,92,0.12)',   color: '#ff3b5c',  border: '1px solid rgba(255,59,92,0.25)'   },
   warning:   { background: 'rgba(255,204,0,0.1)',   color: '#ffcc00',  border: '1px solid rgba(255,204,0,0.2)'   },
@@ -113,7 +113,7 @@ export default function TopBar() {
 
   const handleFootball = useCallback(() => {
     setCourtMode('Football')
-    setLightingMode('Match Mode', '#00e5ff', 100)
+    setLightingMode('Match Mode', '#8D1B3D', 100)
     addLog('Court mode set to Football — Match Mode activated', 'success', '⚽')
     addToast(t('qa.football'), 'Football mode + Match lighting activated', 'success')
   }, [setCourtMode, setLightingMode, addLog, addToast, t])
@@ -140,7 +140,7 @@ export default function TopBar() {
 
   const handleDemo = useCallback(() => {
     setCourtMode('Multi-purpose')
-    setLightingMode('Presentation Mode', '#a855f7', 85)
+    setLightingMode('Presentation Mode', '#C5A059', 85)
     powerAll()
     setScenarioActivating(true)
     setTimeout(() => {
@@ -176,10 +176,10 @@ export default function TopBar() {
           />
           <div style={styles.divider} />
           <StatusChip
-            dotColor={activeCount > 0 ? '#00e5ff' : '#ff3b5c'}
+            dotColor={activeCount > 0 ? '#8D1B3D' : '#d93025'}
             label={t('status.screens')}
             value={`${activeCount}/4`}
-            valueColor={activeCount > 0 ? '#00e5ff' : '#ff3b5c'}
+            valueColor={activeCount > 0 ? '#8D1B3D' : '#d93025'}
           />
           <div style={styles.divider} />
           <StatusChip
@@ -264,7 +264,8 @@ const styles = {
     top: 0,
     zIndex: 100,
     background: 'var(--bg-secondary)',
-    borderBottom: '1px solid var(--border-subtle)',
+    borderBottom: '1px solid var(--border-normal)',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
   },
   mainBar: {
     display: 'flex',
@@ -328,7 +329,7 @@ const styles = {
   clockTime: {
     fontSize: '0.9rem',
     fontWeight: 700,
-    color: '#00e5ff',
+    color: '#8D1B3D',
     letterSpacing: '0.08em',
     lineHeight: 1.2,
   },
@@ -364,7 +365,7 @@ const styles = {
     fontFamily: 'var(--font-display)',
     fontSize: '0.78rem',
     fontWeight: 700,
-    color: '#00e5ff',
+    color: '#8D1B3D',
     transition: 'all 150ms ease',
     letterSpacing: '0.04em',
   },

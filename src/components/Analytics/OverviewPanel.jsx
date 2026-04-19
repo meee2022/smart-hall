@@ -26,11 +26,13 @@ export default function OverviewPanel() {
       <div
         className="card"
         style={{
-          border: '1px solid rgba(0,229,255,0.3)',
-          boxShadow: '0 0 30px rgba(0,229,255,0.08)',
-          background: 'linear-gradient(135deg, #0d1520 0%, #111a2b 60%, #0d1520 100%)',
+          border: '1px solid rgba(141, 27, 61, 0.15)',
+          boxShadow: '0 10px 30px rgba(141, 27, 61, 0.05)',
+          background: 'linear-gradient(135deg, #1a0408 0%, #3d0e1a 100%)', /* Dark Pearl Maroon Hero */
           position: 'relative',
           overflow: 'hidden',
+          borderRadius: 'var(--radius-lg)',
+          color: '#ffffff',
         }}
       >
         {/* Decorative glow orb */}
@@ -38,7 +40,7 @@ export default function OverviewPanel() {
           position: 'absolute', top: '-40px', right: '-40px',
           width: '200px', height: '200px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(197,160,89,0.15) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -46,20 +48,20 @@ export default function OverviewPanel() {
           <div style={{ flex: 1, minWidth: '200px' }}>
             <h2 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.8rem',
-              fontWeight: 700,
+              fontSize: '2rem',
+              fontWeight: 800,
               textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: 'var(--accent-cyan)',
+              letterSpacing: '0.08em',
+              color: '#C5A059', /* Gold */
               marginBottom: '8px',
             }}>
               {t('ov.hero.title', 'Smart Sports Arena')}
             </h2>
             <p style={{
-              fontSize: '0.82rem',
-              color: 'var(--text-secondary)',
+              fontSize: '0.9rem',
+              color: 'rgba(255,255,255,0.8)',
               lineHeight: 1.6,
-              maxWidth: '520px',
+              maxWidth: '550px',
             }}>
               {t('ov.hero.sub', 'A centralized control system for managing smart displays, dynamic court lighting, sport mode configurations, and automated event scenarios — all from one unified dashboard.')}
             </p>
@@ -69,15 +71,15 @@ export default function OverviewPanel() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flexShrink: 0 }}>
             <div style={{
               display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '6px 14px',
-              background: 'rgba(0,229,255,0.08)',
-              border: '1px solid rgba(0,229,255,0.2)',
+              padding: '8px 18px',
+              background: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.15)',
               borderRadius: '20px',
             }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>
                 {t('status.screens', 'Displays')}
               </span>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent-cyan)', fontSize: '0.85rem' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#ffffff', fontSize: '0.9rem' }}>
                 {activeCount}/4
               </span>
             </div>
@@ -99,15 +101,15 @@ export default function OverviewPanel() {
 
             <div style={{
               display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '6px 14px',
-              background: 'rgba(0,255,136,0.08)',
-              border: '1px solid rgba(0,255,136,0.2)',
+              padding: '8px 18px',
+              background: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.15)',
               borderRadius: '20px',
             }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>
                 {t('status.light', 'Lighting')}
               </span>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--accent-green)', fontSize: '0.85rem' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#ffffff', fontSize: '0.9rem' }}>
                 {t(lighting.mode)}
               </span>
             </div>

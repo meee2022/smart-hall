@@ -124,8 +124,8 @@ export default function BroadcastOverlay() {
             alignItems: 'center',
             justifyContent: 'center',
             background: isEmergency
-              ? 'linear-gradient(180deg, #1a0000 0%, #0a0000 50%, #1a0000 100%)'
-              : `linear-gradient(180deg, #1a0408 0%, #2d0a13 50%, #4D1322 100%)`,
+              ? 'linear-gradient(180deg, #5c0a0a 0%, #200404 100%)'
+              : `linear-gradient(180deg, #ffffff 0%, #f5f7f9 100%)`,
             overflow: 'hidden',
           }}
         >
@@ -133,8 +133,8 @@ export default function BroadcastOverlay() {
           <div style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, bottom: 0,
-            opacity: 0.03,
-            background: `repeating-linear-gradient(45deg, #ffffff 0, #ffffff 40px, transparent 40px, transparent 80px)`,
+            opacity: 0.05,
+            background: `repeating-linear-gradient(45deg, #8D1B3D 0, #8D1B3D 40px, transparent 40px, transparent 80px)`,
             pointerEvents: 'none',
           }} />
 
@@ -143,8 +143,8 @@ export default function BroadcastOverlay() {
             position: 'absolute',
             inset: 0,
             background: isEmergency
-              ? 'radial-gradient(ellipse at center, rgba(255,59,92,0.15) 0%, transparent 70%)'
-              : `radial-gradient(ellipse at center, #8D1B3D20 0%, transparent 60%)`,
+              ? 'radial-gradient(ellipse at center, rgba(217,48,37,0.1) 0%, transparent 70%)'
+              : `radial-gradient(ellipse at center, rgba(141,27,61,0.05) 0%, transparent 60%)`,
             pointerEvents: 'none',
           }} />
 
@@ -277,11 +277,11 @@ export default function BroadcastOverlay() {
                 fontFamily: "var(--font-display, 'Rajdhani', sans-serif)",
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#1a0408',
                 textTransform: 'uppercase',
                 letterSpacing: '0.04em',
                 lineHeight: 1.1,
-                textShadow: `0 0 40px ${color}50`,
+                textShadow: `0 2px 10px rgba(141,27,61,0.1)`,
                 margin: 0,
               }}
             >
@@ -297,7 +297,7 @@ export default function BroadcastOverlay() {
                 style={{
                   fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
                   fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: '#5a454B',
                   lineHeight: 1.5,
                   maxWidth: '500px',
                   margin: 0,
@@ -339,16 +339,16 @@ export default function BroadcastOverlay() {
                       width: '40px',
                       height: '40px',
                       borderRadius: '8px',
-                      border: `1px solid ${isActive ? color : 'rgba(255,255,255,0.1)'}`,
-                      background: isActive ? `${color}15` : 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${isActive ? '#8D1B3D' : 'rgba(0,0,0,0.05)'}`,
+                      background: isActive ? 'rgba(141,27,61,0.05)' : 'rgba(0,0,0,0.02)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontFamily: 'var(--font-display)',
                       fontSize: '0.75rem',
                       fontWeight: 700,
-                      color: isActive ? color : 'rgba(255,255,255,0.2)',
-                      boxShadow: isActive ? `0 0 15px ${color}30` : 'none',
+                      color: isActive ? '#8D1B3D' : 'rgba(0,0,0,0.2)',
+                      boxShadow: isActive ? '0 2px 8px rgba(141,27,61,0.1)' : 'none',
                     }}>
                       {label}
                     </div>
@@ -375,7 +375,7 @@ export default function BroadcastOverlay() {
             <div style={{
               width: '100%',
               height: '2px',
-              background: 'rgba(255,255,255,0.1)',
+              background: 'rgba(141,27,61,0.1)',
               borderRadius: '1px',
               overflow: 'hidden',
             }}>
@@ -389,7 +389,7 @@ export default function BroadcastOverlay() {
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.55rem',
-              color: 'rgba(255,255,255,0.25)',
+              color: 'var(--text-muted)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
             }}>

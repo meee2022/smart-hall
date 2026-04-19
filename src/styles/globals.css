@@ -5,34 +5,34 @@
 /* ── Custom Properties (Dark Theme) ── */
 :root {
   /* Backgrounds */
-  --bg-primary:    #0f0407; /* Very deep maroon-tinted charcoal */
-  --bg-secondary:  #2d0a13; /* Deep Qatar maroon */
-  --bg-card:       #3d0e1a; /* Lighter maroon for cards */
-  --bg-hover:      #4d1322; 
+  --bg-primary:    #f5f7f9; /* Pearl White / Very light grey-maroon tint */
+  --bg-secondary:  #ffffff; /* Pure white for panels */
+  --bg-card:       #ffffff;
+  --bg-hover:      #f0eded; 
 
   /* Accent */
   --accent-maroon: #8D1B3D; /* Qatar National Color */
-  --accent-gold:   #C5A059; /* Premium gold/sand accent */
-  --accent-cyan:   #8D1B3D; /* Redirecting old cyan to maroon for compatibility */
+  --accent-gold:   #C5A059; /* Premium gold accent */
+  --accent-cyan:   #8D1B3D; 
 
   /* Status */
-  --status-red:    #ff3b5c;
-  --status-yellow: #ffcc00;
-  --status-orange: #ff6b35;
-  --status-purple: #a855f7;
+  --status-red:    #d93025;
+  --status-yellow: #f29900;
+  --status-orange: #e8710a;
+  --status-purple: #8e24aa;
 
   /* Text */
-  --text-primary:   #ffffff;
-  --text-secondary: #d4b5bd;
-  --text-muted:     #8a6b72;
+  --text-primary:   #1a0408; /* Deep maroon-tinted charcoal */
+  --text-secondary: #5a454B; 
+  --text-muted:     #8a757b;
 
   /* Borders */
-  --border-subtle: rgba(141, 27, 61, 0.15);
-  --border-normal: rgba(141, 27, 61, 0.3);
+  --border-subtle: rgba(141, 27, 61, 0.08); /* Much lighter borders */
+  --border-normal: rgba(141, 27, 61, 0.15);
 
   /* Glow */
-  --glow-maroon: 0 0 20px rgba(141, 27, 61, 0.4);
-  --glow-gold:   0 0 15px rgba(197, 160, 89, 0.3);
+  --glow-maroon: 0 4px 12px rgba(141, 27, 61, 0.15); /* Soft shadows instead of harsh glow */
+  --glow-gold:   0 4px 10px rgba(197, 160, 89, 0.2);
 
   /* Typography */
   --font-display: 'Rajdhani', sans-serif;
@@ -41,9 +41,9 @@
   --font-arabic:  'Noto Kufi Arabic', sans-serif;
 
   /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
 
   /* Transitions */
   --t-fast:   150ms;
@@ -148,8 +148,17 @@ body {
 /* ── Dashboard Hub Styles ── */
 .hero-section {
   padding: 24px 28px;
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background: #0a0406; 
   border-bottom: 1px solid var(--border-normal);
+  color: #ffffff; /* Default text to white for dark hero section */
+}
+
+.hero-section .section-title {
+  color: #ffffff;
+}
+
+.hero-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hub-container {
@@ -161,24 +170,24 @@ body {
   gap: 8px;
   margin: -22px 0 32px;
   padding: 6px;
-  background: rgba(13, 21, 32, 0.8);
+  background: #ffffff; /* Clean white background for the tabs on light theme */
   backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-normal);
   border-radius: var(--radius-lg);
   width: fit-content;
   position: sticky;
   top: 12px;
   z-index: 100;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(141, 27, 61, 0.1);
 }
 
 .hub-tab-item {
-  padding: 8px 18px;
+  padding: 10px 22px;
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700; /* Bolder text for clarity */
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
@@ -191,14 +200,14 @@ body {
 }
 
 .hub-tab-item:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-maroon);
+  background: rgba(141, 27, 61, 0.05);
 }
 
 .hub-tab-item.active {
   background: var(--accent-maroon);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(141, 27, 61, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(141, 27, 61, 0.3);
 }
 
 .hub-content {

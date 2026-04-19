@@ -145,8 +145,8 @@ export default function Sidebar() {
 const styles = {
   sidebar: {
     width: '260px',
-    background: 'var(--bg-secondary)',
-    borderRight: '1px solid var(--border-subtle)',
+    background: '#4D0D19', /* Deeper, richer Qatar Maroon */
+    borderRight: '1px solid rgba(255,255,255,0.08)',
     position: 'sticky',
     top: 0,
     height: '100vh',
@@ -157,7 +157,7 @@ const styles = {
   },
   logoArea: {
     padding: '24px 20px',
-    borderBottom: '1px solid var(--border-subtle)',
+    borderBottom: '1px solid rgba(255,255,255,0.05)',
     display: 'flex',
     alignItems: 'center',
     gap: '12px',
@@ -174,16 +174,16 @@ const styles = {
   },
   logoHex: {
     fontSize: '2.4rem',
-    color: '#00e5ff',
+    color: '#C5A059', /* Gold */
     lineHeight: 1,
-    filter: 'drop-shadow(0 0 8px rgba(0,229,255,0.6))',
+    filter: 'drop-shadow(0 0 8px rgba(197,160,89,0.3))',
     position: 'absolute',
   },
   logoHexInner: {
     fontFamily: 'var(--font-display)',
     fontSize: '0.55rem',
     fontWeight: 700,
-    color: '#00e5ff',
+    color: '#C5A059',
     letterSpacing: '0.04em',
     position: 'relative',
     zIndex: 1,
@@ -197,7 +197,7 @@ const styles = {
     fontFamily: 'var(--font-display)',
     fontSize: '1.05rem',
     fontWeight: 700,
-    color: 'var(--text-primary)',
+    color: '#ffffff',
     textTransform: 'uppercase',
     letterSpacing: '0.08em',
     lineHeight: 1.2,
@@ -208,7 +208,7 @@ const styles = {
   logoSub: {
     fontFamily: 'var(--font-mono)',
     fontSize: '0.58rem',
-    color: '#00e5ff',
+    color: '#C5A059',
     letterSpacing: '0.06em',
     marginTop: '2px',
     textTransform: 'uppercase',
@@ -227,7 +227,7 @@ const styles = {
   groupLabel: {
     fontFamily: 'var(--font-mono)',
     fontSize: '0.58rem',
-    color: 'var(--text-muted)',
+    color: 'rgba(255,255,255,0.6)',
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
     padding: '8px 4px 4px',
@@ -242,7 +242,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'all 150ms ease',
     background: 'transparent',
-    color: 'var(--text-secondary)',
+    color: '#ffffff',
     border: 'none',
     borderLeft: '2px solid transparent',
     textAlign: 'left',
@@ -253,9 +253,10 @@ const styles = {
     textTransform: 'uppercase',
   },
   navItemActive: {
-    background: 'rgba(0,229,255,0.08)',
-    color: '#00e5ff',
-    borderLeft: '2px solid #00e5ff',
+    background: 'rgba(255,255,255,0.15)',
+    color: '#ffffff',
+    borderLeft: '4px solid #C5A059',
+    boxShadow: 'inset 4px 0 10px rgba(0,0,0,0.1)',
   },
   navIcon: {
     fontSize: '1rem',
@@ -284,9 +285,9 @@ const styles = {
   },
   footer: {
     padding: '16px 20px',
-    borderTop: '1px solid var(--border-subtle)',
+    borderTop: '1px solid rgba(255,255,255,0.05)',
     fontSize: '0.65rem',
-    color: 'var(--text-muted)',
+    color: 'rgba(255,255,255,0.6)',
     fontFamily: 'var(--font-mono)',
     letterSpacing: '0.04em',
     flexShrink: 0,
