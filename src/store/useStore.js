@@ -6,6 +6,7 @@ const useStore = create((set, get) => ({
   lang: 'en',
   theme: 'dark',
   activeSection: 'overview',
+  activeTab: 'overview', // New state for grouped tabs
   selectedScreenId: null,
 
   // ── Screen Preview ──
@@ -57,6 +58,7 @@ const useStore = create((set, get) => ({
   setLang: (lang) => set({ lang }),
   setTheme: (theme) => set({ theme }),
   setActiveSection: (section) => set({ activeSection: section }),
+  setActiveTab: (tab) => set({ activeTab: tab }),
   setSelectedScreenId: (id) => set({ selectedScreenId: id }),
 
   showScreenPreview: (screenId, content, contentIcon, duration = 3000) => set({

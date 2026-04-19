@@ -47,12 +47,31 @@ const GROUP_LABELS = {
 export default function Sidebar() {
   const { t, lang }     = useI18n()
   const activeSection   = useStore(state => state.activeSection)
+  const setActiveTab = useStore(state => state.setActiveTab)
   const setActiveSection = useStore(state => state.setActiveSection)
 
   const handleNavClick = useCallback((sectionId) => {
+    // Map section IDs to Hub Tab IDs
+    let targetTab = 'overview'
+    if (['overview', 'hall'].includes(sectionId)) targetTab = 'overview'
+    else if (['screens', 'content', 'lighting', 'court'].includes(sectionId)) targetTab = 'controls'
+    else if (['scenarios', 'broadcast'].includes(sectionId)) targetTab = 'automation'
+    else if (['log', 'analytics'].includes(sectionId)) targetTab = 'monitoring'
+
+    setActiveTab(targetTab)
     setActiveSection(sectionId)
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-  }, [setActiveSection])
+
+    // Scroll to the specific element if it exists
+    setTimeout(() => {
+      const el = document.getElementById(sectionId)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        // If el doesn't exist (e.g. it's inside a tab), scroll to hub container
+        document.querySelector('.hub-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 150)
+  }, [setActiveTab, setActiveSection])
 
   return (
     <aside className="sidebar" style={styles.sidebar}>

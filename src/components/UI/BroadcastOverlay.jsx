@@ -1,15 +1,16 @@
 import { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import useStore from '../../store/useStore';
+import { useI18n } from '../../hooks/useI18n';
 
 const BROADCAST_TYPES = {
-  content: { label: 'NOW PLAYING', bgPattern: 'radial' },
-  announcement: { label: 'ANNOUNCEMENT', bgPattern: 'spotlight' },
-  student: { label: 'STUDENT OF THE DAY', bgPattern: 'celebration' },
-  emergency: { label: 'EMERGENCY ALERT', bgPattern: 'alert' },
-  event: { label: 'UPCOMING EVENT', bgPattern: 'radial' },
-  score: { label: 'MATCH UPDATE', bgPattern: 'spotlight' },
-  custom: { label: 'BROADCAST', bgPattern: 'radial' },
+  content: { label: 'broadcast.type.content', bgPattern: 'radial' },
+  announcement: { label: 'broadcast.type.announcement', bgPattern: 'spotlight' },
+  student: { label: 'broadcast.type.student', bgPattern: 'celebration' },
+  emergency: { label: 'broadcast.type.emergency', bgPattern: 'alert' },
+  event: { label: 'broadcast.type.event', bgPattern: 'radial' },
+  score: { label: 'broadcast.type.score', bgPattern: 'spotlight' },
+  custom: { label: 'broadcast.type.custom', bgPattern: 'radial' },
 };
 
 function ParticleEffect({ color }) {
@@ -76,6 +77,7 @@ function CelebrationEffect() {
 }
 
 export default function BroadcastOverlay() {
+  const { t } = useI18n();
   const broadcast = useStore(s => s.broadcast);
   const closeBroadcast = useStore(s => s.closeBroadcast);
 
@@ -223,7 +225,7 @@ export default function BroadcastOverlay() {
                 background: `${color}10`,
               }}
             >
-              {typeConfig.label}
+              {t(typeConfig.label)}
             </motion.div>
 
             {/* Icon */}
@@ -382,7 +384,7 @@ export default function BroadcastOverlay() {
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
             }}>
-              CLICK OR PRESS ESC TO DISMISS
+              {t('broadcast.dismiss')}
             </span>
           </motion.div>
         </motion.div>

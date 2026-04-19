@@ -115,7 +115,7 @@ export default function BroadcastPanel() {
     }
 
     addLog(`Broadcast: ${preset.title}`, preset.type === 'emergency' ? 'danger' : 'success', '📡');
-    addToast(lang === 'ar' ? 'بث مباشر' : 'Broadcast', title, preset.type === 'emergency' ? 'danger' : 'success');
+    addToast(t('nav.broadcast'), title, preset.type === 'emergency' ? 'danger' : 'success');
   };
 
   const handleCustomBroadcast = () => {
@@ -130,7 +130,7 @@ export default function BroadcastPanel() {
       duration: customDuration * 1000,
     });
     addLog(`Custom broadcast: ${customTitle}`, 'success', '📡');
-    addToast(lang === 'ar' ? 'بث مخصص' : 'Custom Broadcast', customTitle, 'success');
+    addToast(t('nav.broadcast'), customTitle, 'success');
   };
 
   const handleContentBroadcast = (item) => {

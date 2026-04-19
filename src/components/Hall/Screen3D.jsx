@@ -1,11 +1,14 @@
 import { useRef, useState, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Html } from '@react-three/drei';
+import { Html, Text } from '@react-three/drei';
 import useStore from '../../store/useStore';
+import { useI18n } from '../../hooks/useI18n';
 import * as THREE from 'three';
 
 export default function Screen3D({ position, rotation, screenId, label }) {
+  const { t } = useI18n();
   const meshRef = useRef();
+  const lightRef = useRef();
   const screen = useStore(s => s.screens.find(sc => sc.id === screenId));
   const selectedId = useStore(s => s.selectedScreenId);
   const setSelected = useStore(s => s.setSelectedScreenId);
@@ -13,14 +16,15 @@ export default function Screen3D({ position, rotation, screenId, label }) {
   const isOn = screen && screen.status !== 'off';
   const isPlaying = screen && screen.status === 'playing';
   const isEmergency = screen && screen.status === 'emergency';
+  const isPaused = screen && screen.status === 'paused';
 
-  const emissiveColor = isEmergency ? '#ff3b5c' : isPlaying ? '#ffffff' : isOn ? '#00e5ff' : '#111';
-  const emissiveIntensity = isSelected ? 0.8 : isPlaying ? 0.8 : isOn ? 0.2 : 0.02;
+  const emissiveColor = isEmergency ? '#ff3b5c' : isPlaying ? '#00ff88' : isPaused ? '#ffcc00' : isOn ? '#00e5ff' : '#050505';
+  const emissiveIntensity = isSelected ? 2.5 : isPlaying ? 1.8 : isPaused ? 1.2 : isOn ? 0.8 : 0.1;
 
   // Setup the video element
   const [video] = useState(() => {
     const vid = document.createElement('video');
-    vid.src = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
+    vid.src = 'https://vjs.zencdn.net/v/oceans.mp4';
     vid.crossOrigin = 'Anonymous';
     vid.loop = true;
     vid.muted = true;
@@ -45,72 +49,104 @@ export default function Screen3D({ position, rotation, screenId, label }) {
 
   useFrame((state) => {
     if (meshRef.current && isPlaying) {
-      meshRef.current.material.emissiveIntensity = 0.3 + Math.sin(state.clock.elapsedTime * 2) * 0.15;
+      meshRef.current.material.emissiveIntensity = emissiveIntensity * (0.8 + Math.sin(state.clock.elapsedTime * 3) * 0.2);
+    }
+    if (lightRef.current) {
+      lightRef.current.intensity = isOn ? (2.0 + Math.sin(state.clock.elapsedTime * 2) * 0.5) : 0;
     }
   });
 
   return (
     <group position={position} rotation={rotation}>
-      {/* Screen frame */}
+      {/* ── Screen Frame (Metallic Bezel) ── */}
       <mesh castShadow position={[0, 0, 0]}>
-        <boxGeometry args={[3.5, 1.2, 0.08]} />
-        <meshStandardMaterial color="#1a1a2e" roughness={0.3} metalness={0.8} />
+        <boxGeometry args={[3.5, 1.2, 0.1]} />
+        <meshStandardMaterial color="#0a0a0f" roughness={0.1} metalness={0.9} />
       </mesh>
-      {/* Screen surface */}
+
+      {/* ── Screen Surface (The LED Panel) ── */}
       <mesh
         ref={meshRef}
-        position={[0, 0, 0.05]}
+        position={[0, 0, 0.051]}
         onClick={(e) => { e.stopPropagation(); setSelected(screenId); }}
-        castShadow
       >
-        <boxGeometry args={[3.2, 1, 0.02]} />
+        <planeGeometry args={[3.3, 1.1]} />
         <meshStandardMaterial
           map={isPlaying && !isEmergency ? videoTexture : null}
-          color={isOn ? '#0a1628' : '#050505'}
+          color={isOn ? '#050a1a' : '#020202'}
           emissive={emissiveColor}
           emissiveIntensity={emissiveIntensity}
-          emissiveMap={isPlaying && !isEmergency ? videoTexture : null}
           roughness={0.1}
-          metalness={0.3}
+          metalness={0.2}
         />
       </mesh>
-      {/* Label */}
+
+      {/* ── Glass Overlay (Realism Layer) ── */}
+      <mesh position={[0, 0, 0.06]}>
+        <planeGeometry args={[3.3, 1.1]} />
+        <meshPhysicalMaterial
+          transparent
+          opacity={0.1}
+          roughness={0.05}
+          metalness={0.6}
+          thickness={0.05}
+          transmission={0.95}
+          ior={1.5}
+          color="#ffffff"
+        />
+      </mesh>
+
+      {/* ── Content Text (High Visibility) ── */}
+      {isOn && screen?.content && (
+        <group position={[0, 0, 0.07]}>
+          <Text
+            fontSize={0.25}
+            color="#ffffff"
+            anchorX="center"
+            anchorY="middle"
+            maxWidth={3}
+            textAlign="center"
+          >
+            {`${screen.contentIcon} ${t(screen.content)}`}
+          </Text>
+        </group>
+      )}
+
+      {/* ── Label (Subtitle) ── */}
       <Html position={[0, -0.85, 0.1]} center style={{ pointerEvents: 'none' }}>
         <div style={{
           fontSize: '10px',
-          fontFamily: 'Rajdhani, sans-serif',
-          color: isOn ? '#8899aa' : '#334',
+          fontWeight: '700',
+          fontFamily: 'system-ui, sans-serif',
+          color: isOn ? emissiveColor : '#334',
           textTransform: 'uppercase',
-          letterSpacing: '0.1em',
+          letterSpacing: '0.15em',
           whiteSpace: 'nowrap',
-          userSelect: 'none'
+          textShadow: isOn ? `0 0 10px ${emissiveColor}` : 'none',
+          transition: 'all 0.3s'
         }}>
-          {screen?.name || label}
+          {t(screen?.name || label)}
         </div>
       </Html>
-      {/* Content label on screen */}
-      {isOn && screen?.content && (
-        <Html position={[0, 0, 0.08]} center style={{ pointerEvents: 'none' }}>
-          <div style={{
-            fontSize: '9px',
-            fontFamily: 'DM Sans, sans-serif',
-            color: 'rgba(255,255,255,0.7)',
-            textAlign: 'center',
-            maxWidth: '80px',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            userSelect: 'none'
-          }}>
-            {screen.contentIcon} {screen.content}
-          </div>
-        </Html>
+
+      {/* ── Point Light (Emitted Glow) ── */}
+      {isOn && (
+        <rectAreaLight
+          ref={lightRef}
+          position={[0, 0, 0.1]}
+          rotation={[0, 0, 0]}
+          width={3.3}
+          height={1.1}
+          color={emissiveColor}
+          intensity={2}
+        />
       )}
-      {/* Selection glow */}
+
+      {/* ── Selection Indicator ── */}
       {isSelected && (
-        <mesh position={[0, 0, -0.02]}>
-          <boxGeometry args={[3.8, 1.4, 0.01]} />
-          <meshBasicMaterial color="#00e5ff" transparent opacity={0.15} />
+        <mesh position={[0, 0, -0.05]}>
+          <boxGeometry args={[3.7, 1.4, 0.02]} />
+          <meshBasicMaterial color="#00e5ff" transparent opacity={0.2} />
         </mesh>
       )}
     </group>

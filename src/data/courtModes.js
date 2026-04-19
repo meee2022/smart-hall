@@ -30,5 +30,13 @@ export const COURT_MODES = [
     color: '#a855f7',
     glow: 'rgba(168,85,247,0.3)',
     desc: 'Flexible multi-sport configuration suitable for general use and events'
+  },
+  {
+    id: 'basketball',
+    name: 'Basketball',
+    icon: '🏀',
+    color: '#f2a900',
+    glow: 'rgba(242,169,0,0.3)',
+    desc: 'Professional basketball court with three-point arcs and free-throw keys'
   }
 ];

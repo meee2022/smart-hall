@@ -88,16 +88,47 @@ function VolleyballLines({ hw = HW, hh = HH }) {
   );
 }
 
+function BasketballLines({ hw = HW, hh = HH }) {
+  const color = '#f2a900';
+  const y = 0.03;
+  const keyW = Math.min(2.8, hw * 0.4);
+  const keyH = Math.min(2.4, hh * 0.6);
+  const arcR = Math.min(5.2, hw * 0.75);
+  const cr = Math.min(1.2, hw * 0.17);
+
+  return (
+    <group>
+      <Line points={[[-hw,y,-hh],[hw,y,-hh],[hw,y,hh],[-hw,y,hh],[-hw,y,-hh]]} color={color} lineWidth={1.5} />
+      <Line points={[[0,y,-hh],[0,y,hh]]} color={color} lineWidth={1.5} />
+      <Line points={makeCirclePoints(0, 0, cr)} color={color} lineWidth={1} />
+      
+      {/* Keys */}
+      <Line points={[[-hw,y,-keyH],[-hw+keyW,y,-keyH],[-hw+keyW,y,keyH],[-hw,y,keyH]]} color={color} lineWidth={1} />
+      <Line points={[[hw,y,-keyH],[hw-keyW,y,-keyH],[hw-keyW,y,keyH],[hw,y,keyH]]} color={color} lineWidth={1} />
+      
+      {/* Free throw circles */}
+      <Line points={makeArcPoints(-hw+keyW, 0, keyH, -Math.PI/2, Math.PI/2)} color={color} lineWidth={1} />
+      <Line points={makeArcPoints(hw-keyW, 0, keyH, Math.PI/2, Math.PI*1.5)} color={color} lineWidth={1} />
+
+      {/* 3 Point Arcs */}
+      <Line points={makeArcPoints(-hw+1.2, 0, arcR, -Math.PI/2, Math.PI/2)} color={color} lineWidth={1} />
+      <Line points={makeArcPoints(hw-1.2, 0, arcR, Math.PI/2, Math.PI*1.5)} color={color} lineWidth={1} />
+    </group>
+  );
+}
+
 function renderSportLines(mode, hw, hh) {
   switch (mode) {
     case 'Football': return <FootballLines hw={hw} hh={hh} />;
     case 'Handball': return <HandballLines hw={hw} hh={hh} />;
     case 'Volleyball': return <VolleyballLines hw={hw} hh={hh} />;
+    case 'Basketball': return <BasketballLines hw={hw} hh={hh} />;
     case 'Multi-purpose': return (
       <group>
         <FootballLines hw={hw} hh={hh} />
         <group position={[0, 0.001, 0]}><HandballLines hw={hw} hh={hh} /></group>
         <group position={[0, 0.002, 0]}><VolleyballLines hw={hw} hh={hh} /></group>
+        <group position={[0, 0.003, 0]}><BasketballLines hw={hw} hh={hh} /></group>
       </group>
     );
     default: return <FootballLines hw={hw} hh={hh} />;
