@@ -125,17 +125,26 @@ export default function BroadcastOverlay() {
             justifyContent: 'center',
             background: isEmergency
               ? 'linear-gradient(180deg, #1a0000 0%, #0a0000 50%, #1a0000 100%)'
-              : `linear-gradient(180deg, #020408 0%, #080d14 40%, #0a1020 100%)`,
+              : `linear-gradient(180deg, #1a0408 0%, #2d0a13 50%, #4D1322 100%)`,
             overflow: 'hidden',
           }}
         >
+          {/* Background Decorative Element: Qatar Flag-inspired serrated edge pattern */}
+          <div style={{
+            position: 'absolute',
+            top: 0, left: 0, right: 0, bottom: 0,
+            opacity: 0.03,
+            background: `repeating-linear-gradient(45deg, #ffffff 0, #ffffff 40px, transparent 40px, transparent 80px)`,
+            pointerEvents: 'none',
+          }} />
+
           {/* Background glow */}
           <div style={{
             position: 'absolute',
             inset: 0,
             background: isEmergency
               ? 'radial-gradient(ellipse at center, rgba(255,59,92,0.15) 0%, transparent 70%)'
-              : `radial-gradient(ellipse at center, ${color}15 0%, transparent 60%)`,
+              : `radial-gradient(ellipse at center, #8D1B3D20 0%, transparent 60%)`,
             pointerEvents: 'none',
           }} />
 
@@ -148,7 +157,7 @@ export default function BroadcastOverlay() {
               position: 'absolute',
               top: 0, left: 0, right: 0,
               height: '3px',
-              background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+              background: `linear-gradient(90deg, transparent, #8D1B3D, transparent)`,
             }}
           />
           <motion.div
@@ -159,7 +168,7 @@ export default function BroadcastOverlay() {
               position: 'absolute',
               bottom: 0, left: 0, right: 0,
               height: '3px',
-              background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+              background: `linear-gradient(90deg, transparent, #8D1B3D, transparent)`,
             }}
           />
 
@@ -216,13 +225,13 @@ export default function BroadcastOverlay() {
               style={{
                 fontFamily: 'var(--font-mono, monospace)',
                 fontSize: '0.7rem',
-                color: color,
+                color: '#C5A059',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
                 padding: '6px 20px',
-                border: `1px solid ${color}40`,
+                border: `1px solid #C5A05940`,
                 borderRadius: '20px',
-                background: `${color}10`,
+                background: `#C5A05910`,
               }}
             >
               {t(typeConfig.label)}
@@ -306,7 +315,7 @@ export default function BroadcastOverlay() {
               style={{
                 width: '120px',
                 height: '2px',
-                background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+                background: `linear-gradient(90deg, transparent, #C5A059, transparent)`,
                 marginTop: '8px',
               }}
             />
@@ -374,7 +383,7 @@ export default function BroadcastOverlay() {
                 initial={{ width: '100%' }}
                 animate={{ width: '0%' }}
                 transition={{ duration: (broadcast.duration || 5000) / 1000, ease: 'linear' }}
-                style={{ height: '100%', background: color }}
+                style={{ height: '100%', background: '#8D1B3D' }}
               />
             </div>
             <span style={{

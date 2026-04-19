@@ -52,10 +52,10 @@ export default function ScreenPreviewOverlay() {
           <div style={{
             width: '600px',
             height: '340px',
-            background: '#0a1020',
-            border: '4px solid #1a2235',
+            background: '#1a0408',
+            border: '4px solid #3d0e1a',
             borderRadius: '12px',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 229, 255, 0.1)',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(141, 27, 61, 0.2)',
             overflow: 'hidden',
             position: 'relative',
             display: 'flex',
@@ -131,7 +131,7 @@ export default function ScreenPreviewOverlay() {
               justifyContent: 'space-between',
               padding: '0 20px'
             }}>
-              <span style={{ color: '#00e5ff', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+              <span style={{ color: '#C5A059', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                 {t(screenName).toUpperCase()}
               </span>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}>
@@ -147,8 +147,8 @@ export default function ScreenPreviewOverlay() {
                   position: 'absolute',
                   bottom: 0, left: 0,
                   height: '2px',
-                  background: '#00e5ff',
-                  boxShadow: '0 0 10px #00e5ff'
+                  background: '#8D1B3D',
+                  boxShadow: '0 0 10px #8D1B3D'
                 }}
               />
             </div>

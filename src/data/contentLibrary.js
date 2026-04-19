@@ -1,5 +1,5 @@
 export const CONTENT_PREVIEWS = {
-  'Welcome Screen':      { bg: 'linear-gradient(135deg,#0a1628,#0d2040)', icon: '🏟️', color: '#00e5ff' },
+  'Welcome Screen':      { bg: 'linear-gradient(135deg,#1a0408,#3d0e1a)', icon: '🏟️', color: '#C5A059' },
   'Healthy Habits':      { bg: 'linear-gradient(135deg,#0a1a12,#0d2818)', icon: '💪', color: '#00ff88' },
   'Warm-up Routine':     { bg: 'linear-gradient(135deg,#1a0e0a,#2a1500)', icon: '🔥', color: '#ff6b35' },
   'Safety Instructions': { bg: 'linear-gradient(135deg,#1a1500,#2a2000)', icon: '🦺', color: '#ffcc00' },
@@ -12,7 +12,7 @@ export const CONTENT_PREVIEWS = {
   'Handball Techniques': { bg: 'linear-gradient(135deg,#1a1000,#281800)', icon: '🤾', color: '#ff6b35' },
   'Match Countdown':     { bg: 'linear-gradient(135deg,#1a0a0a,#280e0e)', icon: '⏱️', color: '#ff3b5c' },
   'EMERGENCY GUIDANCE':  { bg: 'linear-gradient(135deg,#200808,#300808)', icon: '🚨', color: '#ff3b5c' },
-  'default':             { bg: 'linear-gradient(135deg,#0a1020,#0d1630)', icon: '📺', color: '#7a9bb5' }
+  'default':             { bg: 'linear-gradient(135deg,#1a0408,#2d0a13)', icon: '📺', color: '#8D1B3D' }
 };
 
 export const ContentLibrary = {

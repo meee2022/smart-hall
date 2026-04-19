@@ -5,14 +5,15 @@
 /* ── Custom Properties (Dark Theme) ── */
 :root {
   /* Backgrounds */
-  --bg-primary:    #080d14;
-  --bg-secondary:  #0d1520;
-  --bg-card:       #111a2b;
-  --bg-hover:      #162236;
+  --bg-primary:    #0f0407; /* Very deep maroon-tinted charcoal */
+  --bg-secondary:  #2d0a13; /* Deep Qatar maroon */
+  --bg-card:       #3d0e1a; /* Lighter maroon for cards */
+  --bg-hover:      #4d1322; 
 
   /* Accent */
-  --accent-cyan:   #00e5ff;
-  --accent-green:  #00ff88;
+  --accent-maroon: #8D1B3D; /* Qatar National Color */
+  --accent-gold:   #C5A059; /* Premium gold/sand accent */
+  --accent-cyan:   #8D1B3D; /* Redirecting old cyan to maroon for compatibility */
 
   /* Status */
   --status-red:    #ff3b5c;
@@ -21,16 +22,17 @@
   --status-purple: #a855f7;
 
   /* Text */
-  --text-primary:   #e8f0ff;
-  --text-secondary: #8899aa;
-  --text-muted:     #556677;
+  --text-primary:   #ffffff;
+  --text-secondary: #d4b5bd;
+  --text-muted:     #8a6b72;
 
   /* Borders */
-  --border-subtle: rgba(0, 229, 255, 0.08);
-  --border-normal: rgba(0, 229, 255, 0.15);
+  --border-subtle: rgba(141, 27, 61, 0.15);
+  --border-normal: rgba(141, 27, 61, 0.3);
 
   /* Glow */
-  --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.3);
+  --glow-maroon: 0 0 20px rgba(141, 27, 61, 0.4);
+  --glow-gold:   0 0 15px rgba(197, 160, 89, 0.3);
 
   /* Typography */
   --font-display: 'Rajdhani', sans-serif;
@@ -105,17 +107,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-cyan);
+  background: var(--accent-maroon);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 229, 255, 0.7);
+  background: rgba(141, 27, 61, 0.7);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-cyan) var(--bg-secondary);
+  scrollbar-color: var(--accent-maroon) var(--bg-secondary);
 }
 
 /* ── App Layout ── */
@@ -194,9 +196,9 @@ body {
 }
 
 .hub-tab-item.active {
-  background: var(--accent-cyan);
-  color: #000;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  background: var(--accent-maroon);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(141, 27, 61, 0.4);
 }
 
 .hub-content {

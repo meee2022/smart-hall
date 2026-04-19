@@ -18,7 +18,7 @@ export default function Screen3D({ position, rotation, screenId, label }) {
   const isEmergency = screen && screen.status === 'emergency';
   const isPaused = screen && screen.status === 'paused';
 
-  const emissiveColor = isEmergency ? '#ff3b5c' : isPlaying ? '#00ff88' : isPaused ? '#ffcc00' : isOn ? '#00e5ff' : '#050505';
+  const emissiveColor = isEmergency ? '#ff3b5c' : isPlaying ? '#00ff88' : isPaused ? '#ffcc00' : isOn ? '#8D1B3D' : '#050505';
   const emissiveIntensity = isSelected ? 2.5 : isPlaying ? 1.8 : isPaused ? 1.2 : isOn ? 0.8 : 0.1;
 
   // Setup the video element
