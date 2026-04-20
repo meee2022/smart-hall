@@ -3,10 +3,10 @@ export const LIGHTING_MODES = [
     id: 'training',
     name: 'Training Mode',
     icon: '🏋️',
-    color: '#00e5ff',
-    glow: 'rgba(0,229,255,0.3)',
+    color: '#007a8c', /* Dark Cyan */
+    glow: 'rgba(0,122,140,0.2)',
     intensity: 85,
-    ambientColor: '#00e5ff',
+    ambientColor: '#007a8c',
     ledLines: true,
     description: 'Full brightness for focused training sessions'
   },
@@ -14,8 +14,8 @@ export const LIGHTING_MODES = [
     id: 'match',
     name: 'Match Mode',
     icon: '🏆',
-    color: '#ffffff',
-    glow: 'rgba(255,255,255,0.2)',
+    color: '#344054', /* Dark Gray/Slate instead of invisible white */
+    glow: 'rgba(52,64,84,0.2)',
     intensity: 100,
     ambientColor: '#e8f4ff',
     ledLines: true,
@@ -25,10 +25,10 @@ export const LIGHTING_MODES = [
     id: 'health',
     name: 'Health Awareness',
     icon: '💚',
-    color: '#00ff88',
-    glow: 'rgba(0,255,136,0.3)',
+    color: '#008a4b', /* Dark Green */
+    glow: 'rgba(0,138,75,0.2)',
     intensity: 70,
-    ambientColor: '#00ff88',
+    ambientColor: '#008a4b',
     ledLines: true,
     description: 'Soft green tones for wellness campaigns'
   },
@@ -36,10 +36,10 @@ export const LIGHTING_MODES = [
     id: 'safety',
     name: 'Safety Mode',
     icon: '⚠️',
-    color: '#ffcc00',
-    glow: 'rgba(255,204,0,0.3)',
+    color: '#b87500', /* Dark Orange-Yellow */
+    glow: 'rgba(184,117,0,0.2)',
     intensity: 90,
-    ambientColor: '#ffcc00',
+    ambientColor: '#b87500',
     ledLines: true,
     description: 'High visibility yellow for safety procedures'
   },
@@ -47,10 +47,10 @@ export const LIGHTING_MODES = [
     id: 'presentation',
     name: 'Presentation Mode',
     icon: '🎤',
-    color: '#a855f7',
-    glow: 'rgba(168,85,247,0.3)',
+    color: '#7e22ce', /* Dark Purple */
+    glow: 'rgba(126,34,206,0.2)',
     intensity: 60,
-    ambientColor: '#a855f7',
+    ambientColor: '#7e22ce',
     ledLines: false,
     description: 'Stage-like atmosphere for events & demos'
   },

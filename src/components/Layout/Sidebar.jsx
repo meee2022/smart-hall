@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import useStore from '../../store/useStore'
 import { useI18n } from '../../hooks/useI18n'
+import AppLogo from '../UI/AppLogo'
 
 // ── Navigation structure ─────────────────────────────────────
 const NAV_GROUPS = [
@@ -78,8 +79,7 @@ export default function Sidebar() {
       {/* ── Logo ── */}
       <div style={styles.logoArea}>
         <div style={styles.logoIconWrapper}>
-          <span style={styles.logoHex}>⬡</span>
-          <span style={styles.logoHexInner}>SA</span>
+          <AppLogo size={44} />
         </div>
         <div style={styles.logoText}>
           <div style={styles.logoTitle}>{t('logo.title')}</div>
@@ -106,14 +106,14 @@ export default function Sidebar() {
                   }}
                   onMouseEnter={e => {
                     if (!isActive) {
-                      e.currentTarget.style.background = 'rgba(0,229,255,0.05)'
-                      e.currentTarget.style.color = 'var(--text-primary)'
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.08)'
+                      e.currentTarget.style.color = '#ffffff'
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isActive) {
                       e.currentTarget.style.background = 'transparent'
-                      e.currentTarget.style.color = 'var(--text-secondary)'
+                      e.currentTarget.style.color = 'rgba(255,255,255,0.7)'
                     }
                   }}
                   title={t(item.labelKey)}
@@ -164,30 +164,14 @@ const styles = {
     flexShrink: 0,
   },
   logoIconWrapper: {
-    position: 'relative',
-    width: '40px',
-    height: '40px',
+    width: '44px',
+    height: '44px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
-  },
-  logoHex: {
-    fontSize: '2.4rem',
-    color: '#C5A059', /* Gold */
-    lineHeight: 1,
-    filter: 'drop-shadow(0 0 8px rgba(197,160,89,0.3))',
-    position: 'absolute',
-  },
-  logoHexInner: {
-    fontFamily: 'var(--font-display)',
-    fontSize: '0.55rem',
-    fontWeight: 700,
-    color: '#C5A059',
-    letterSpacing: '0.04em',
-    position: 'relative',
-    zIndex: 1,
-    marginTop: '2px',
+    filter: 'drop-shadow(0 0 10px rgba(197,160,89,0.35))',
+    transition: 'filter 300ms ease',
   },
   logoText: {
     flex: 1,

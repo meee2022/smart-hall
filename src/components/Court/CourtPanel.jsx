@@ -84,10 +84,10 @@ export default function CourtPanel() {
       {court.split && (
         <div className="grid-2" style={{ gap: '16px' }}>
           {/* Left Court */}
-          <div className="card" style={{ borderColor: 'rgba(0,229,255,0.2)' }}>
+          <div className="card" style={{ borderColor: 'rgba(0,122,140,0.3)' }}>
             <div className="card-header">
               <div>
-                <div className="card-title" style={{ color: '#00e5ff' }}>
+                <div className="card-title" style={{ color: '#007a8c' }}>
                   {isAr ? '◀ الملعب الأيسر' : 'Left Court ◀'}
                 </div>
                 <div className="card-subtitle">
@@ -129,10 +129,10 @@ export default function CourtPanel() {
           </div>
 
           {/* Right Court */}
-          <div className="card" style={{ borderColor: 'rgba(168,85,247,0.2)' }}>
+          <div className="card" style={{ borderColor: 'rgba(126,34,206,0.3)' }}>
             <div className="card-header">
               <div>
-                <div className="card-title" style={{ color: '#a855f7' }}>
+                <div className="card-title" style={{ color: '#7e22ce' }}>
                   {isAr ? 'الملعب الأيمن ▶' : '▶ Right Court'}
                 </div>
                 <div className="card-subtitle">

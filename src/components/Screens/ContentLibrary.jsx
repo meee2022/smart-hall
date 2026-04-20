@@ -29,8 +29,8 @@ function QuickAssignModal({ item, closeModal }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', margin: '16px 0' }}>
         {screens.map(screen => {
           const statusColor = {
-            playing: '#00ff88', on: '#00e5ff', paused: '#ffcc00',
-            off: '#ff3b5c', emergency: '#ff3b5c',
+            playing: '#008a4b', on: '#007a8c', paused: '#b87500',
+            off: '#cc2942', emergency: '#cc2942',
           }[screen.status] || '#7a9bb5';
 
           return (
@@ -44,7 +44,7 @@ function QuickAssignModal({ item, closeModal }) {
                 borderRadius: 'var(--radius-md)', color: 'var(--text-primary)',
                 transition: 'all var(--t-fast)',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#00e5ff'; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#8D1B3D'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-normal)'; }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -60,7 +60,7 @@ function QuickAssignModal({ item, closeModal }) {
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
                   {screen.content ? t(screen.content) : t('No content')}
                 </span>
-                <span style={{ fontSize: '0.7rem', color: '#00e5ff' }}>→ Assign</span>
+                <span style={{ fontSize: '0.7rem', color: '#8D1B3D' }}>→ Assign</span>
               </div>
             </button>
           );
@@ -183,8 +183,8 @@ export default function ContentLibraryPanel() {
       <div style={{
         display: 'flex', alignItems: 'center', gap: '12px',
         padding: '10px 16px',
-        background: 'rgba(0,229,255,0.05)',
-        border: '1px solid rgba(0,229,255,0.15)',
+        background: 'rgba(141, 27, 61, 0.05)',
+        border: '1px solid rgba(141, 27, 61, 0.15)',
         borderRadius: 'var(--radius-md)',
         fontSize: '0.75rem', color: 'var(--text-secondary)',
       }}>

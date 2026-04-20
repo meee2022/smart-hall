@@ -1,4 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="#080d14" stroke="#00e5ff" stroke-width="4"/>
-  <text x="50" y="62" text-anchor="middle" font-family="sans-serif" font-size="32" font-weight="bold" fill="#00e5ff">SA</text>
+<svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B1226"/>
+      <stop offset="100%" stop-color="#3A0910"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C47A"/>
+      <stop offset="100%" stop-color="#9E7A3A"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagon background -->
+  <polygon points="50,4 92,27 92,73 50,96 8,73 8,27" fill="url(#g1)" stroke="url(#g2)" stroke-width="2.5"/>
+  <!-- Hall roof arch -->
+  <path d="M28 58 Q50 32 72 58" stroke="url(#g2)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Left pillar -->
+  <rect x="27" y="57" width="4.5" height="18" rx="1" fill="url(#g2)"/>
+  <!-- Right pillar -->
+  <rect x="68.5" y="57" width="4.5" height="18" rx="1" fill="url(#g2)"/>
+  <!-- Floor base -->
+  <rect x="24" y="73" width="52" height="3" rx="1.5" fill="url(#g2)" opacity="0.8"/>
+  <!-- Door -->
+  <rect x="44" y="60" width="12" height="16" rx="2" fill="none" stroke="url(#g2)" stroke-width="1.5"/>
+  <!-- Wifi/smart arcs -->
+  <circle cx="50" cy="44" r="3" fill="url(#g2)"/>
+  <path d="M43 39.5 Q50 34 57 39.5" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M39 35.5 Q50 27 61 35.5" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.55"/>
 </svg>

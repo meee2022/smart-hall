@@ -53,13 +53,13 @@ function QAButton({ label, onClick, variant = 'default' }) {
 }
 
 const QA_VARIANTS = {
-  default:   { background: 'rgba(141,27,61,0.08)',   color: '#8D1B3D',  border: '1px solid rgba(141,27,61,0.15)'   },
-  success:   { background: 'rgba(0,255,136,0.1)',   color: '#00ff88',  border: '1px solid rgba(0,255,136,0.2)'   },
-  danger:    { background: 'rgba(255,59,92,0.12)',   color: '#ff3b5c',  border: '1px solid rgba(255,59,92,0.25)'   },
-  warning:   { background: 'rgba(255,204,0,0.1)',   color: '#ffcc00',  border: '1px solid rgba(255,204,0,0.2)'   },
-  sport:     { background: 'rgba(168,85,247,0.1)',  color: '#a855f7',  border: '1px solid rgba(168,85,247,0.2)'  },
-  health:    { background: 'rgba(0,255,136,0.08)',  color: '#00ff88',  border: '1px solid rgba(0,255,136,0.15)'  },
-  demo:      { background: 'rgba(255,107,53,0.1)',  color: '#ff6b35',  border: '1px solid rgba(255,107,53,0.2)'  },
+  default:   { background: '#f0e6ea', color: '#8D1B3D', border: '1px solid #d4b8c0' },
+  success:   { background: '#e6f7ec', color: '#007a41', border: '1px solid #a3d9bc' },
+  danger:    { background: '#fdedf0', color: '#cc2942', border: '1px solid #f2bac4' },
+  warning:   { background: '#fef6e6', color: '#b36b00', border: '1px solid #fae1a3' },
+  sport:     { background: '#f3eefe', color: '#6b21a8', border: '1px solid #d4bbee' },
+  health:    { background: '#e6f7ec', color: '#007a41', border: '1px solid #a3d9bc' },
+  demo:      { background: '#fef0e8', color: '#c05020', border: '1px solid #fac2a3' },
 }
 
 // ── TopBar Component ─────────────────────────────────────────
@@ -171,7 +171,7 @@ export default function TopBar() {
         {/* Left: Status chips */}
         <div style={styles.statusRow}>
           <StatusChip
-            dotColor="#00ff88"
+            dotColor="#008a4b" /* Dark Green */
             label={t('status.online')}
           />
           <div style={styles.divider} />
@@ -183,17 +183,17 @@ export default function TopBar() {
           />
           <div style={styles.divider} />
           <StatusChip
-            dotColor="#a855f7"
+            dotColor="#7e22ce" /* Dark Purple */
             label={t('status.court')}
             value={court.split ? `${court.leftMode} | ${court.rightMode}` : court.mode}
-            valueColor="#a855f7"
+            valueColor="#7e22ce"
           />
           <div style={styles.divider} />
           <StatusChip
-            dotColor="#ffcc00"
+            dotColor="#b87500" /* Dark Orange/Yellow */
             label={t('status.light')}
             value={lighting.mode}
-            valueColor="#ffcc00"
+            valueColor="#b87500"
           />
         </div>
 

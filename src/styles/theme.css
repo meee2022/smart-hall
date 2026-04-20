@@ -57,32 +57,32 @@
 .btn-lg  { padding: 10px 20px; font-size: 0.85rem; }
 
 .btn-primary {
-  background: rgba(0, 229, 255, 0.15);
-  color: #00e5ff;
-  border: 1px solid rgba(0, 229, 255, 0.3);
+  background: rgba(141, 27, 61, 0.1);
+  color: #8D1B3D;
+  border: 1px solid rgba(141, 27, 61, 0.3);
 }
-.btn-primary:hover { background: rgba(0, 229, 255, 0.25); }
+.btn-primary:hover { background: rgba(141, 27, 61, 0.2); }
 
 .btn-success {
-  background: rgba(0, 255, 136, 0.15);
-  color: #00ff88;
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(0, 138, 75, 0.1);
+  color: #008a4b;
+  border: 1px solid rgba(0, 138, 75, 0.3);
 }
-.btn-success:hover { background: rgba(0, 255, 136, 0.25); }
+.btn-success:hover { background: rgba(0, 138, 75, 0.2); }
 
 .btn-danger {
-  background: rgba(255, 59, 92, 0.15);
-  color: #ff3b5c;
-  border: 1px solid rgba(255, 59, 92, 0.3);
+  background: rgba(204, 41, 66, 0.1);
+  color: #cc2942;
+  border: 1px solid rgba(204, 41, 66, 0.3);
 }
-.btn-danger:hover { background: rgba(255, 59, 92, 0.25); }
+.btn-danger:hover { background: rgba(204, 41, 66, 0.2); }
 
 .btn-warning {
-  background: rgba(255, 204, 0, 0.15);
-  color: #ffcc00;
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  background: rgba(184, 117, 0, 0.1);
+  color: #b87500;
+  border: 1px solid rgba(184, 117, 0, 0.3);
 }
-.btn-warning:hover { background: rgba(255, 204, 0, 0.25); }
+.btn-warning:hover { background: rgba(184, 117, 0, 0.2); }
 
 .btn-ghost {
   background: transparent;
@@ -115,16 +115,16 @@
 }
 
 /* Dot colors */
-.badge-on     .badge-dot { background: #00e5ff; }
-.badge-playing .badge-dot { background: #00ff88; animation: pulse-dot 1.5s infinite; }
-.badge-paused .badge-dot { background: #ffcc00; }
-.badge-off    .badge-dot { background: #ff3b5c; }
+.badge-on     .badge-dot { background: #007a8c; }
+.badge-playing .badge-dot { background: #008a4b; animation: pulse-dot 1.5s infinite; }
+.badge-paused .badge-dot { background: #b87500; }
+.badge-off    .badge-dot { background: #cc2942; }
 
 /* Badge backgrounds & text */
-.badge-on      { background: rgba(0, 229, 255, 0.12); color: #00e5ff; }
-.badge-playing { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
-.badge-paused  { background: rgba(255, 204, 0, 0.12);  color: #ffcc00; }
-.badge-off     { background: rgba(255, 59, 92, 0.12);  color: #ff3b5c; }
+.badge-on      { background: rgba(0, 122, 140, 0.12); color: #007a8c; }
+.badge-playing { background: rgba(0, 138, 75, 0.12); color: #008a4b; }
+.badge-paused  { background: rgba(184, 117, 0, 0.12);  color: #b87500; }
+.badge-off     { background: rgba(204, 41, 66, 0.12);  color: #cc2942; }
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
@@ -254,12 +254,12 @@
 }
 
 .toggle input:checked + .toggle-slider {
-  background: rgba(0, 229, 255, 0.3);
+  background: rgba(141, 27, 61, 0.3);
 }
 
 .toggle input:checked + .toggle-slider::before {
   transform: translateX(18px);
-  background: #00e5ff;
+  background: #8D1B3D;
 }
 
 /* ── Slider Input ── */
@@ -277,9 +277,9 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #00e5ff;
+  background: #8D1B3D;
   cursor: pointer;
-  box-shadow: var(--glow-cyan);
+  box-shadow: 0 0 10px rgba(141, 27, 61, 0.3);
 }
 
 /* ── Toast ── */
@@ -360,12 +360,12 @@
   flex-shrink: 0;
 }
 
-.stat-icon.cyan   { background: rgba(0, 229, 255, 0.1);  color: #00e5ff; }
-.stat-icon.green  { background: rgba(0, 255, 136, 0.1);  color: #00ff88; }
-.stat-icon.orange { background: rgba(255, 107, 53, 0.1); color: #ff6b35; }
-.stat-icon.purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
-.stat-icon.red    { background: rgba(255, 59, 92, 0.1);  color: #ff3b5c; }
-.stat-icon.yellow { background: rgba(255, 204, 0, 0.1);  color: #ffcc00; }
+.stat-icon.cyan   { background: rgba(0, 122, 140, 0.1);  color: #007a8c; }
+.stat-icon.green  { background: rgba(0, 138, 75, 0.1);  color: #008a4b; }
+.stat-icon.orange { background: rgba(192, 80, 32, 0.1); color: #c05020; }
+.stat-icon.purple { background: rgba(126, 34, 206, 0.1); color: #7e22ce; }
+.stat-icon.red    { background: rgba(204, 41, 66, 0.1);  color: #cc2942; }
+.stat-icon.yellow { background: rgba(184, 117, 0, 0.1);  color: #b87500; }
 
 .stat-body {
   flex: 1;
@@ -551,9 +551,9 @@
 }
 
 /* Screen state classes */
-.screen-playing   { border-color: rgba(0, 255, 136, 0.2); }
-.screen-paused    { border-color: rgba(255, 204, 0, 0.2); }
-.screen-off       { border-color: rgba(255, 59, 92, 0.1); opacity: 0.7; }
+.screen-playing   { border-color: rgba(0, 138, 75, 0.3); }
+.screen-paused    { border-color: rgba(184, 117, 0, 0.3); }
+.screen-off       { border-color: rgba(204, 41, 66, 0.15); opacity: 0.8; }
 .screen-off:hover { opacity: 1; }
 
 .screen-emergency {

@@ -436,7 +436,7 @@ export default function ScreenPanel() {
           </button>
           <div style={{ flex: 1 }} />
           <button className="btn btn-danger btn-sm" onClick={handleEmergency}
-            style={{ background: 'rgba(255,59,92,0.2)', borderColor: 'rgba(255,59,92,0.5)' }}>
+            style={{ background: 'rgba(204,41,66,0.15)', borderColor: 'rgba(204,41,66,0.4)', color: '#cc2942' }}>
             🚨 {t('btn.emergency', 'Emergency Mode')}
           </button>
         </div>
