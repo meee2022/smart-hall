@@ -185,7 +185,7 @@ export default function TopBar() {
           <StatusChip
             dotColor="#7e22ce" /* Dark Purple */
             label={t('status.court')}
-            value={court.split ? `${court.leftMode} | ${court.rightMode}` : court.mode}
+            value={court.layout === 4 ? (lang === 'ar' ? '4 ملاعب' : '4 Courts') : court.layout === 2 ? `${court.leftMode} | ${court.rightMode}` : court.mode}
             valueColor="#7e22ce"
           />
           <div style={styles.divider} />

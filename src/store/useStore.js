@@ -36,7 +36,7 @@ const useStore = create((set, get) => ({
   },
 
   // ── Court ──
-  court: { mode: 'Multi-purpose', split: false, leftMode: 'Football', rightMode: 'Football' },
+  court: { mode: 'Multi-purpose', split: false, layout: 1, leftMode: 'Football', rightMode: 'Football', q1Mode: 'Football', q2Mode: 'Football', q3Mode: 'Football', q4Mode: 'Football' },
 
   // ── Scenario ──
   scenario: { active: null, activating: false },
@@ -186,17 +186,27 @@ const useStore = create((set, get) => ({
   })),
 
   setCourtMode: (mode) => set(state => ({
-    court: { ...state.court, mode, split: false },
+    court: { ...state.court, mode, split: false, layout: 1 },
     system: { ...state.system, lastUpdated: Date.now() }
   })),
 
-  setCourtSplit: (split) => set(state => ({
-    court: { ...state.court, split },
+  setCourtLayout: (layout) => set(state => ({
+    court: { ...state.court, layout, split: layout > 1 },
     system: { ...state.system, lastUpdated: Date.now() }
   })),
 
   setCourtSplitModes: (leftMode, rightMode) => set(state => ({
-    court: { ...state.court, split: true, leftMode, rightMode },
+    court: { ...state.court, split: true, layout: 2, leftMode, rightMode },
+    system: { ...state.system, lastUpdated: Date.now() }
+  })),
+
+  setCourtQuarterModes: (q1Mode, q2Mode, q3Mode, q4Mode) => set(state => ({
+    court: { ...state.court, split: true, layout: 4, q1Mode, q2Mode, q3Mode, q4Mode },
+    system: { ...state.system, lastUpdated: Date.now() }
+  })),
+
+  setCourtQuarterMode: (quarter, mode) => set(state => ({
+    court: { ...state.court, [`q${quarter}Mode`]: mode },
     system: { ...state.system, lastUpdated: Date.now() }
   })),
 

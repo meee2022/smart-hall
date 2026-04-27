@@ -21,6 +21,7 @@ import BroadcastPanel from './components/Broadcast/BroadcastPanel'
 
 import useStore from './store/useStore'
 import { useI18n } from './hooks/useI18n'
+import { useStartupSound } from './hooks/useStartupSound'
 
 const sectionVariants = {
   hidden:  { opacity: 0, y: 24 },
@@ -47,6 +48,7 @@ function AppSection({ id, title, subtitle, children }) {
 }
 
 export default function App() {
+  useStartupSound()
   const { t, lang } = useI18n()
   const addLog = useStore(s => s.addLog)
   const closeModal = useStore(s => s.closeModal)

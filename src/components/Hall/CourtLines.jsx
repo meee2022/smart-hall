@@ -163,10 +163,57 @@ function SplitDivider() {
   );
 }
 
+function SplitDivider4() {
+  const y = 0.04;
+  return (
+    <group>
+      {/* Vertical divider */}
+      <Line points={[[0, y, -HH - 0.3], [0, y, HH + 0.3]]} color="#ffffff" lineWidth={2.5} />
+      <Line points={[[0, y, -HH - 0.3], [0, y, HH + 0.3]]} color="#00e5ff" lineWidth={1} dashed dashSize={0.3} gapSize={0.2} />
+      
+      {/* Horizontal divider */}
+      <Line points={[[-HW - 0.3, y, 0], [HW + 0.3, y, 0]]} color="#ffffff" lineWidth={2.5} />
+      <Line points={[[-HW - 0.3, y, 0], [HW + 0.3, y, 0]]} color="#00e5ff" lineWidth={1} dashed dashSize={0.3} gapSize={0.2} />
+
+      {/* Center circle */}
+      <mesh position={[0, 0.06, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.15, 16]} />
+        <meshBasicMaterial color="#00e5ff" transparent opacity={0.6} />
+      </mesh>
+    </group>
+  );
+}
+
 export default function CourtLines() {
   const court = useStore(s => s.court);
 
-  if (court.split) {
+  if (court.layout === 4) {
+    const qW = HW / 2 - 0.15;
+    const qH = HH / 2 - 0.15;
+    return (
+      <group>
+        <SplitDivider4 />
+        {/* Top Left court (Q1) */}
+        <group position={[-(HW / 2 + 0.1), 0, -(HH / 2 + 0.1)]}>
+          {renderSportLines(court.q1Mode, qW, qH)}
+        </group>
+        {/* Top Right court (Q2) */}
+        <group position={[(HW / 2 + 0.1), 0, -(HH / 2 + 0.1)]}>
+          {renderSportLines(court.q2Mode, qW, qH)}
+        </group>
+        {/* Bottom Left court (Q3) */}
+        <group position={[-(HW / 2 + 0.1), 0, (HH / 2 + 0.1)]}>
+          {renderSportLines(court.q3Mode, qW, qH)}
+        </group>
+        {/* Bottom Right court (Q4) */}
+        <group position={[(HW / 2 + 0.1), 0, (HH / 2 + 0.1)]}>
+          {renderSportLines(court.q4Mode, qW, qH)}
+        </group>
+      </group>
+    );
+  }
+
+  if (court.layout === 2) {
     const halfW = HW / 2 - 0.15;
     return (
       <group>
